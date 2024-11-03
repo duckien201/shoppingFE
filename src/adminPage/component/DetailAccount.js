@@ -160,19 +160,7 @@ const DetailAccount = () => {
                                     </tr>
                                     <tr>
                                         <td>Số điện thoại</td>
-                                        <td style={{ padding: "12px" }}>
-                                            {user?.phone ? (
-                                                <span>
-                                                    {user.phone}
-                                                    <button style={{ fontSize: "15px", color: "#888888", border: "none", background: "none" }}
-                                                        onClick={() => navigate("/user/phone")}>
-                                                        <FiEdit2 />
-                                                    </button>
-                                                </span>
-                                            ) : (
-                                                <Link to={"/user/phone"}>Thêm</Link>
-                                            )}
-                                        </td>
+                                        <td><input type="email" style={{ width: "100%", padding: "12px", border: "#D8D8D8 solid 1px" }} value={user?.phone || ''} onChange={(e) => setUser({ ...user, phone: e.target.value })} /></td>
                                     </tr>
                                     <tr>
                                         <td>Ngày sinh</td>
@@ -190,19 +178,7 @@ const DetailAccount = () => {
                                     </tr>
                                     <tr>
                                         <td>Địa chỉ</td>
-                                        <td style={{ padding: "12px" }}>
-                                            {user?.address ? (
-                                                <span>
-                                                    {user.address}
-                                                    <button style={{ fontSize: "15px", color: "#888888", border: "none", background: "none" }}
-                                                        onClick={() => navigate("/user/address")}>
-                                                        <FiEdit2 />
-                                                    </button>
-                                                </span>
-                                            ) : (
-                                                <Link to={"/user/address"}>Thêm</Link>
-                                            )}
-                                        </td>
+                                        <td><input type="email" style={{ width: "100%", padding: "12px", border: "#D8D8D8 solid 1px" }} value={user?.address || ''} onChange={(e) => setUser({ ...user, address: e.target.value })} /></td>
                                     </tr>
                                 </tbody>
                             </table>
