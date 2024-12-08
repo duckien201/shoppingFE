@@ -119,7 +119,7 @@ const ReportAdmin = () => {
                     </Col>
                     <Col xs={10}>
                         <Container style={{ background: "#FCFCFC", padding: "12px", marginBottom: "15px" }}>
-                            <div style={{ fontSize: "20px", padding: "20px", color: "#EE4D2D" }}>Tài khoản bị tố cáo</div>
+                            <div style={{ fontSize: "20px", padding: "20px", color: "#5f4632" }}>Tài khoản bị tố cáo</div>
                             <Table style={{ width: "100%" }} striped bordered hover>
                                 <thead>
                                     <tr>
@@ -187,7 +187,7 @@ const ReportAdmin = () => {
                             </div>
                         </Container>
                         <Container style={{ background: "#FCFCFC", padding: "12px", marginBottom: "15px" }}>
-                            <div style={{ fontSize: "20px", padding: "20px", color: "#EE4D2D" }}>Tố cáo đã xử lý</div>
+                            <div style={{ fontSize: "20px", padding: "20px", color: "#5f4632" }}>Tố cáo đã xử lý</div>
                             <div>
                                 <Checkbox
                                     name="checkbox"

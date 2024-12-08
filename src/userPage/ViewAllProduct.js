@@ -1,4 +1,4 @@
-import {  Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import Header from "./Header";
 import { IoMenu } from "react-icons/io5";
 import { HiOutlineFilter } from "react-icons/hi";
@@ -66,8 +66,9 @@ const ViewAllProduct = () => {
 
             const updatedArrayProduct = await Promise.all(filteredProducts.map(async (product) => {
                 const star = await getStar(product.idProduct);
-                return { ...product, star: star };
+                return { ...product,  star: star };
             }));
+            
             if (filterRating) {
                 filteredProducts = updatedArrayProduct.filter(product => product.star >= filterRating)
             }
@@ -169,7 +170,7 @@ const ViewAllProduct = () => {
                             <input style={{ width: "40%" }} placeholder="Đến" onChange={(e) => setPriceTo(e.target.value)} />
                             <button onClick={() => {
                                 addQueryParams({ priceFrom, priceTo });
-                            }} style={{ border: "none", background: "#EE4D2D", color: "white", padding: "7px 20px", marginTop: "10px" }}>Áp dụng</button>
+                            }} style={{ border: "none", background: "#5f4632", color: "white", padding: "7px 20px", marginTop: "10px" }}>Áp dụng</button>
                         </div>
                         <div>Đánh giá</div>
                         <ul style={{ borderBottom: "solid 1px #E8E8E8", marginBottom: "15px", paddingBottom: "20px" }}>
@@ -190,7 +191,7 @@ const ViewAllProduct = () => {
                             </button>
                         </ul>
                         <div style={{ textAlign: "center" }}>
-                            <button onClick={() => navigate({ search: '' })} style={{ border: "none", background: "#EE4D2D", color: "white", padding: "7px 25px " }}>Xóa tất cả</button>
+                            <button onClick={() => navigate({ search: '' })} style={{ border: "none", background: "#5f4632", color: "white", padding: "7px 25px " }}>Xóa tất cả</button>
                         </div>
                     </Col>
                     <Col xs={10}>
@@ -207,63 +208,63 @@ const ViewAllProduct = () => {
                         </Row>
                         <Row>
                             {currentProducts
-                            ?.filter(product=>product?.remain!==0)
-                            ?.map(product => (
-                                <Col key={product.idProduct} xs={3} style={{ padding: "5px" }}>
-                                    <div
-                                        style={{ background: "white", padding: "10px", cursor: "pointer" }}
-                                        onClick={() => viewDetailProduct(product)}
-                                    >
-                                        <img
-                                            src={`${product.image[0]}`}
-                                            alt={product.name}
-                                            style={{ maxWidth: "100%" }}
-                                        />
-                                        <div>
-                                            <div style={{ display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden", textOverflow: "ellipsis", lineHeight: "1.5", maxHeight: "3em" }}>
-                                                {(product?.name)}
-                                            </div>
+                                ?.filter(product => product?.remain !== 0)
+                                ?.map(product => (
+                                    <Col key={product.idProduct} xs={3} style={{ padding: "5px" }}>
+                                        <div
+                                            style={{ background: "white", padding: "10px", cursor: "pointer" }}
+                                            onClick={() => viewDetailProduct(product)}
+                                        >
+                                            <img
+                                                src={`${product.image[0]}`}
+                                                alt={product.name}
+                                                style={{ maxWidth: "100%" }}
+                                            />
                                             <div>
-                                                {product.sale === 0 ? (
-                                                    <div>
-                                                        <div style={{ color: "#EE4D2D" }}>
-                                                            {formatNumber(product.price)} đ
-                                                        </div>
-                                                        <div style={{ color: "white", fontSize: "8px" }}>asds</div>
-                                                    </div>
-                                                ) : (
-                                                    <div style={{ display: "flex", justifyContent: "space-between" }}>
+                                                <div style={{ display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden", textOverflow: "ellipsis", lineHeight: "1.5", maxHeight: "3em" }}>
+                                                    {(product?.name)}
+                                                </div>
+                                                <div>
+                                                    {product.sale === 0 ? (
                                                         <div>
-                                                            <div style={{ fontSize: "12px", textDecoration: "line-through" }}>
+                                                            <div style={{ color: "#EE4D2D" }}>
                                                                 {formatNumber(product.price)} đ
                                                             </div>
-                                                            <div style={{ background: "#F84A2F", color: "white", fontSize: "12px", padding: " 0 2px" }}>Giảm {product?.sale}%</div>
+                                                            <div style={{ color: "white", fontSize: "8px" }}>asds</div>
                                                         </div>
-                                                        <div style={{ color: "#EE4D2D", fontSize: "15px" }}>
-                                                            {formatNumber(Math.ceil(product.price * (100 - product.sale) / 100))} đ
+                                                    ) : (
+                                                        <div style={{ display: "flex", justifyContent: "space-between" }}>
+                                                            <div>
+                                                                <div style={{ fontSize: "12px", textDecoration: "line-through" }}>
+                                                                    {formatNumber(product.price)} đ
+                                                                </div>
+                                                                <div style={{ background: "#5f4632", color: "white", fontSize: "12px", padding: " 0 2px" }}>Giảm {product?.sale}%</div>
+                                                            </div>
+                                                            <div style={{ color: "#EE4D2D", fontSize: "15px" }}>
+                                                                {formatNumber(Math.ceil(product.price * (100 - product.sale) / 100))} đ
+                                                            </div>
                                                         </div>
+                                                    )}
+                                                    <div style={{ display: "flex", justifyContent: "space-between", paddingTop: "7px" }}>
+                                                        <div style={{
+                                                            display: "flex",
+                                                            alignItems: "center",
+                                                            justifyContent: 'center'
+                                                        }}>
+                                                            {[...Array(5)].map((_, i) => (
+                                                                <FaStar
+                                                                    key={i}
+                                                                    style={{ color: i < product.star ? "#F0D24A" : "#e4e5e9" }}
+                                                                />
+                                                            ))}
+                                                        </div>
+                                                        <div>Đã bán {product.numberOfSale}</div>
                                                     </div>
-                                                )}
-                                                <div style={{ display: "flex", justifyContent: "space-between", paddingTop: "7px" }}>
-                                                    <div style={{
-                                                        display: "flex",
-                                                        alignItems: "center",
-                                                        justifyContent: 'center'
-                                                    }}>
-                                                        {[...Array(5)].map((_, i) => (
-                                                            <FaStar
-                                                                key={i}
-                                                                style={{ color: i < product.star ? "#F0D24A" : "#e4e5e9" }}
-                                                            />
-                                                        ))}
-                                                    </div>
-                                                    <div>Đã bán {product.numberOfSale}</div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </Col>
-                            ))}
+                                    </Col>
+                                ))}
                         </Row>
                         {/* {totalPages > 1 && (
                             <div style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}>

@@ -284,7 +284,7 @@ const Wallet = () => {
                 <Alert message={alert.message} type={alert.type} />
             )}
             <div style={{ borderBottom: "1px solid #F5F5F5", paddingBottom: "20px" }}>
-                <div style={{ fontSize: "20px" }}>Số dư ví: <span style={{ fontSize: "25px", marginLeft: "30px", color: "#FC5731" }}>{formatMoney(user?.wallet)} đ</span></div>
+                <div style={{ fontSize: "20px" }}>Số dư ví: <span style={{ fontSize: "25px", marginLeft: "30px", color: "#5f4632" }}>{formatMoney(user?.wallet)} đ</span></div>
             </div>
             <div style={{ display: "flex", justifyContent: "space-around", padding: "15px 0 20px 0", borderBottom: "1px solid #F5F5F5" }}>
                 <button onClick={() => setOpenDeposit(true)} style={{ border: "none", background: "none", width: "15%" }}>

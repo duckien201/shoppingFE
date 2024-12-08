@@ -67,7 +67,7 @@ const ChangePhone = () => {
             {error && <div style={{ color: 'red', marginTop: '10px' }}>{error}</div>}
             <button
                 onClick={changePhone}
-                style={{ border: "none", background: "#F05D40", color: "white", padding: "8px 25px", margin: "25px 0 0 170px" }}
+                style={{ border: "none", background: "#5f4632", color: "white", padding: "8px 25px", margin: "25px 0 0 170px" }}
                 disabled={!validatePhone(newPhone)} // Disable button if phone is not valid
             >
                 Lưu

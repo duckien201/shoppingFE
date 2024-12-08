@@ -6,6 +6,7 @@ import StatusOrder from "./component/StatusOrder"
 import { AiOutlineShop } from "react-icons/ai"
 import formatMoney from "../../function/formatMoney"
 import { BASE_URL } from "../../constant/constant"
+import SuggestProduct from "../product/suggestProduct"
 
 
 const DetailOrder = () => {
@@ -120,14 +121,14 @@ const DetailOrder = () => {
                         <div>
                             Vui lòng thanh toán <span style={{ color: "red" }}>{formatMoney(orderInfo?.totalOrder)} đ</span> + tiền ship khi nhận hàng
                         </div>
-                        <div>Tiền ship từ 20.000đ - 50.000đ tùy thuộc vào khoảng cách của bạn và shop</div>
+                        {/* <div>Tiền ship từ 20.000đ - 50.000đ tùy thuộc vào khoảng cách của bạn và shop</div> */}
                     </div>
                 ) : (
                     <div style={{ background: "#FFFEFA", border: "1px solid #E8E1CA", fontSize: "13px", padding: "14px " }}>
                         <div>
                             Vui lòng thanh toán tiền ship khi nhận hàng
                         </div>
-                        <div>Tiền ship từ 20.000đ - 50.000đ tùy thuộc vào khoảng cách của bạn và shop</div>
+                        {/* <div>Tiền ship từ 20.000đ - 50.000đ tùy thuộc vào khoảng cách của bạn và shop</div> */}
                     </div>
                 )}
                 <Table bordered style={{ border: "#F5F5F5", textAlign: "end", marginBottom: "0px" }}  >
@@ -144,7 +145,9 @@ const DetailOrder = () => {
                     </tbody>
                 </Table>
             </div>
+            <SuggestProduct shop = {orderInfo?.shop} idOrder={orderInfo?.id}/>
         </Container>
+        
     )
 }
 export default DetailOrder

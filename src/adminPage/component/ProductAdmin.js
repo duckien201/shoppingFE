@@ -170,7 +170,7 @@ const ProductAdmin = () => {
                     </Col>
                     <Col xs={10} style={{ paddingRight: "30px" }}>
                         <Container style={{ background: "#FCFCFC" }}>
-                            <div style={{ fontSize: "20px", padding: "20px", color: "#EE4D2D" }}>Sản phẩm đợi duyệt</div>
+                            <div style={{ fontSize: "20px", padding: "20px", color: "#5f4632" }}>Sản phẩm đợi duyệt</div>
                             <div>
                                 <Popconfirm
                                     title="Duyệt sản phẩm"
@@ -286,13 +286,13 @@ const ProductAdmin = () => {
                             />
                         </div>
                         <br />
-                        <div style={{ fontSize: "20px", padding: "20px", color: "#EE4D2D", background: "#F5F5F5" }}>Tất cả sản phẩm</div>
+                        <div style={{ fontSize: "20px", padding: "20px", color: "#5f4632", background: "#F5F5F5" }}>Tất cả sản phẩm</div>
                         <AllProduct status="ok" style />
                         <br />
-                        <div style={{ fontSize: "20px", padding: "20px", color: "#EE4D2D", background: "#F5F5F5" }}>Sản phẩm đã từ chối</div>
+                        <div style={{ fontSize: "20px", padding: "20px", color: "#5f4632", background: "#F5F5F5" }}>Sản phẩm đã từ chối</div>
                         <AllProduct status="Từ chối" style />
                         <br />
-                        <div style={{ fontSize: "20px", padding: "20px", color: "#EE4D2D", background: "#F5F5F5" }}>Sản phẩm đang bị khóa</div>
+                        <div style={{ fontSize: "20px", padding: "20px", color: "#5f4632", background: "#F5F5F5" }}>Sản phẩm đang bị khóa</div>
                         <AllProduct status="Cấm" style />
                     </Col>
                 </Row>

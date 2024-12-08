@@ -91,7 +91,7 @@ const Overview = () => {
                     </Col>
                     <Col xs={10}>
                         <Container style={{ background: "#FCFCFC" }}>
-                            <div style={{ fontSize: "20px", padding: "20px", color: "#EE4D2D" }}>Tổng quan hệ thống</div>
+                            <div style={{ fontSize: "20px", padding: "20px", color: "#5f4632" }}>Tổng quan hệ thống</div>
                             <div style={{ display: "flex", justifyContent: "space-around" }}>
                                 <Button onClick={() => navigate("/admin/products")} variant="primary" style={{ height: "150px", width: "225px", textAlign: "start", fontSize: "20px", fontWeight: "bold", display: "flex", flexDirection: "column", justifyContent: "space-around" }}>
                                     <div style={{ width: "100%", display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>

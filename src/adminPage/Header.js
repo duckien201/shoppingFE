@@ -48,10 +48,10 @@ const Header = () => {
     };
 
     return (
-        <div style={{ borderBottom: "3px solid #F5F5F7", boxShadow: "0 2px 5px rgba(0, 0, 0, 0.5)", marginBottom: "5px" }}>
+        <div style={{ borderBottom: "3px solid #5f4632", boxShadow: "0 2px 5px rgba(0, 0, 0, 0.5)", marginBottom: "5px" }}>
             <Container style={{ display: "flex", justifyContent: "space-between" }}>
                 <div className="col-sm-2" style={{ height: "130px", paddingTop: "20px" }}>
-                    <Link to="/"><img src="../images/logo5.png" alt="Logo" style={{ width: "auto", height: "80%" }} /></Link>
+                    <Link to="/admin"><img src="../images/logo6.png" alt="Logo" style={{ width: "auto", height: "80%" }} /></Link>
                 </div>
                 <div style={{ height: "130px", display: "flex" }}>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>

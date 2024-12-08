@@ -6,7 +6,7 @@ import uploadImg from "../../function/uploadImg";
 import { BASE_URL } from "../../constant/constant";
 import { useNavigate } from "react-router-dom";
 
-const MAX_TOTAL_SIZE_MB = 3;
+const MAX_TOTAL_SIZE_MB = 5;
 const MAX_TOTAL_SIZE_BYTES = MAX_TOTAL_SIZE_MB * 1024 * 1024;
 
 const AddProduct = () => {
@@ -120,7 +120,7 @@ const AddProduct = () => {
             setImages([]);
             setPreview([]);
         } catch (error) {
-             message.success("Thêm thành công");
+            message.success("Thêm sản phẩm mới thành công");
             console.error(error);
         }
         setLoading(false);
@@ -232,8 +232,8 @@ const AddProduct = () => {
                         </Col>
                     </Row>
 
-                    <button type="submit" style={{ marginTop: "20px", background: "#F75530", border: "none", color: "white", padding: "13px 30px", borderRadius: "5px" }}>
-                        Submit
+                    <button type="submit" style={{ marginTop: "20px", background: "#5f4632", border: "none", color: "white", padding: "13px 30px", borderRadius: "5px" }}>
+                        Thêm sản phẩm
                     </button>
                 </form>
             )}

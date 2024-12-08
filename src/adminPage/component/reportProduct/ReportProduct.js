@@ -90,7 +90,7 @@ const ReportProduct = () => {
     return (
         <Container>
             <Container style={{ background: "#FCFCFC", padding: "12px", marginBottom: "15px" }}>
-                <div style={{ fontSize: "20px", padding: "20px", color: "#EE4D2D" }}>Sản phẩm bị tố cáo</div>
+                <div style={{ fontSize: "20px", padding: "20px", color: "#5f4632" }}>Sản phẩm bị tố cáo</div>
                 <Table style={{ width: "100%" }} striped bordered hover>
                     <thead>
                         <tr>
@@ -169,7 +169,7 @@ const ReportProduct = () => {
                 </Modal>
             </Container>
             <Container style={{ background: "#FCFCFC", padding: "12px", marginBottom: "15px" }}>
-                <div style={{ fontSize: "20px", padding: "20px", color: "#EE4D2D" }}>Tố cáo đã xử lý</div>
+                <div style={{ fontSize: "20px", padding: "20px", color: "#5f4632" }}>Tố cáo đã xử lý</div>
                 <Table style={{ width: "100%" }} striped bordered hover>
                     <thead>
                         <tr>

@@ -182,7 +182,7 @@ const DetailAccount = () => {
                                     </tr>
                                 </tbody>
                             </table>
-                            <button onClick={updateUser} style={{ width: "80px", height: "40px", border: "none", color: "white", background: "#F05D40", margin: "auto" }}>Lưu</button>
+                            <button onClick={updateUser} style={{ width: "80px", height: "40px", border: "none", color: "white", background: "#5f4632", margin: "auto" }}>Lưu</button>
                         </Col>
                         <Col xs={4} style={{ textAlign: "center" }}>
                             <div style={{ borderRadius: "50%", overflow: "hidden", width: "150px", height: "150px", padding: "0", margin: "auto", marginTop: "10px" }}>

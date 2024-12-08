@@ -76,7 +76,7 @@ const BestSeller = () => {
                                             <div style={{ fontSize: "12px", textDecoration: "line-through" }}>
                                                 {formatMoney(product.price)} đ
                                             </div>
-                                            <div style={{ background: "#F84A2F", color: "white", fontSize: "12px", padding: "0 2px" }}>Giảm {product?.sale}%</div>
+                                            <div style={{ background: "#5f4632", color: "white", fontSize: "12px", padding: "0 2px" }}>Giảm {product?.sale}%</div>
                                         </div>
                                         <div style={{ color: "#EE4D2D", fontSize: "15px" }}>
                                             {formatMoney(Math.ceil(product?.price * (100 - product?.sale) / 100))} đ

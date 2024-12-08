@@ -105,7 +105,7 @@ const OrderAdmin = () => {
                     </Col>
                     <Col xs={10}>
                         <Container style={{ background: "#FCFCFC" }}>
-                            <div style={{ fontSize: "20px", padding: "20px", color: "#EE4D2D" }}>Tất cả đơn hàng</div>
+                            <div style={{ fontSize: "20px", padding: "20px", color: "#5f4632" }}>Tất cả đơn hàng</div>
                             <div style={{ padding: "10px 0 20px 0" }}>
                                 <Checkbox
                                     name="checkbox"

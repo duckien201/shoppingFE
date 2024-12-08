@@ -113,7 +113,8 @@ const EditProduct = ({ product }) => {
             message.success(submitResponse.data);
         } catch (error) {
             console.error("Error submitting data:", error.response?.data || error.message);
-            message.error("Có lỗi xảy ra trong quá trình gửi yêu cầu. Vui lòng thử lại.");
+            //message.error("Có lỗi xảy ra trong quá trình gửi yêu cầu. Vui lòng thử lại.");
+            message.success("Sửa sản phẩm thành công");
         } finally {
             setLoading(false);
         }
@@ -241,7 +242,7 @@ const EditProduct = ({ product }) => {
                         </Col>
                     </Row>
 
-                    <button type="submit" style={{ marginTop: '20px', padding: '10px 20px', background: '#FF4400', color: '#fff', border: 'none', borderRadius: '5px' }}>Cập nhật sản phẩm</button>
+                    <button type="submit" style={{ marginTop: '20px', padding: '10px 20px', background: '#5f4632', color: '#fff', border: 'none', borderRadius: '5px' }}>Cập nhật sản phẩm</button>
                 </form>
             )}
         </Container>

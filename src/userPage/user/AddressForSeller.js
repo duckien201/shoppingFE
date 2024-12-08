@@ -100,7 +100,7 @@ const AddressForSeller = () => {
                         placeholder="Nhập số nhà, đường, thôn, xóm"
                     />
                 </Form.Group>
-                <Button variant="primary" type="submit" style={{ backgroundColor: "#EF5D40" }}>
+                <Button variant="primary" type="submit" style={{ backgroundColor: "#5f4632" }}>
                     Cập nhật địa chỉ
                 </Button>
             </Form>

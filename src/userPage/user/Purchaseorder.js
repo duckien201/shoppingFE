@@ -259,27 +259,27 @@ const PurchaseOrder = () => {
                                                         if (order?.status === "Hoàn thành" || order?.status === "Đã hủy") {
                                                             return <button
                                                                 onClick={() => viewDetailProduct(item?.product)}
-                                                                style={{ background: "#EE4D2D", color: "white", border: "none", width: "150px", padding: "10px 0", borderRadius: "5px" }}
+                                                                style={{ background: "#5f4632", color: "white", border: "none", width: "150px", padding: "10px 0", borderRadius: "5px" }}
                                                             >Mua lại</button>;
                                                         } else if (order?.status === "Chờ xác nhận" || order?.status === "Đang chờ thanh toán") {
                                                             return <button onClick={() => {
                                                                 setOpenCancelOrder(true)
                                                                 setIdOrderCancel(order?.id)
                                                             }}
-                                                                style={{ background: "#EE4D2D", color: "white", border: "none", width: "150px", padding: "10px 0", borderRadius: "5px" }}
+                                                                style={{ background: "#5f4632", color: "white", border: "none", width: "150px", padding: "10px 0", borderRadius: "5px" }}
                                                             >Hủy đơn</button>;
                                                         } else if (order?.status === "Đang vận chuyển") {
                                                             return <button onClick={() => changeStatusOrder(order?.id, order?.status)}
-                                                                style={{ background: "#EE4D2D", color: "white", border: "none", width: "150px", padding: "10px 0", borderRadius: "5px" }}
+                                                                style={{ background: "#5f4632", color: "white", border: "none", width: "150px", padding: "10px 0", borderRadius: "5px" }}
                                                             >Đã nhận được hàng</button>;
                                                         } else {
                                                             return <button disabled
-                                                                style={{ background: "#6C6C6C", color: "white", border: "none", width: "150px", padding: "10px 0", borderRadius: "5px" }}
+                                                                style={{ background: "#5f4632", color: "white", border: "none", width: "150px", padding: "10px 0", borderRadius: "5px" }}
                                                             >Đã nhận được hàng</button>;
                                                         }
                                                     })()}
-                                                        <button style={{ background: "white", border: "solid 1px #6C6C6C", width: "150px", padding: "10px 0", borderRadius: "5px", marginLeft: "10px" }}
-                                                        >Chat với người bán</button>
+                                                        {/* <button style={{ background: "white", border: "solid 1px #6C6C6C", width: "150px", padding: "10px 0", borderRadius: "5px", marginLeft: "10px" }}
+                                                        >Chat với người bán</button> */}
                                                     </div>
                                                 </div>
                                             </Container>
@@ -371,7 +371,7 @@ const PurchaseOrder = () => {
                                                 if (order?.status === "Hoàn thành" || order?.status === "Đã hủy") {
                                                     return <button
                                                         onClick={() => viewDetailProduct(allItem.filter(item => item.order.id === order.id)[0].product)}
-                                                        style={{ background: "#EE4D2D", color: "white", border: "none", width: "150px", padding: "10px 0", borderRadius: "5px" }}
+                                                        style={{ background: "#5f4632", color: "white", border: "none", width: "150px", padding: "10px 0", borderRadius: "5px" }}
                                                     >Mua lại</button>;
                                                 } else if (order?.status === "Đang vận chuyển") {
                                                     return <button onClick={() => changeStatusOrder(order?.id, order?.status)}
@@ -383,8 +383,8 @@ const PurchaseOrder = () => {
                                                     >Đã nhận được hàng</button>;
                                                 }
                                             })()}
-                                                <button style={{ background: "white", border: "solid 1px #6C6C6C", width: "150px", padding: "10px 0", borderRadius: "5px", marginLeft: "10px" }}
-                                                >Chat với người bán</button>
+                                                {/* <button style={{ background: "white", border: "solid 1px #6C6C6C", width: "150px", padding: "10px 0", borderRadius: "5px", marginLeft: "10px" }}
+                                                >Chat với người bán</button> */}
                                             </div>
                                         </div>
                                     </Container>

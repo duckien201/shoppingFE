@@ -44,7 +44,7 @@ const SellerHome = () => {
             <div style={{ borderBottom: "1px solid #F5F5F5", background: "white" }}>
                 <Container style={{ padding: "25px 0", }}>
                     <div style={{ fontSize: "25px", display: "flex" }}>
-                        <Link to={"/"}><img src="../images/logo5.png" alt="logo" style={{ height: "70px", marginRight: "50px" }} /></Link>
+                        <Link to={"/"}><img src="../images/logo6.png" alt="logo" style={{ height: "70px", marginRight: "50px" }} /></Link>
                         <div style={{ display: "flex", justifyContent: 'center', alignItems: 'center' }}>Kênh người bán</div>
                     </div>
                 </Container>

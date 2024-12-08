@@ -89,7 +89,7 @@ const Categories = () => {
                     </Col>
                     <Col xs={10} style={{ paddingRight: "30px" }}>
                         <Container style={{ background: "#FCFCFC" }}>
-                            <div style={{ fontSize: "20px", padding: "20px", color: "#EE4D2D" }}>Tất cả danh mục</div>
+                            <div style={{ fontSize: "20px", padding: "20px", color: "#5f4632" }}>Tất cả danh mục</div>
                             <Row>
                                 {category?.map(category => (
                                     <Col key={category.id} xs={1}>
@@ -105,7 +105,7 @@ const Categories = () => {
                             </div>
                         ) : (
                             <Container style={{ background: "#FCFCFC", marginTop: "10px" }}>
-                                <div style={{ fontSize: "20px", padding: "20px", color: "#EE4D2D" }}>Thêm danh mục mới</div>
+                                <div style={{ fontSize: "20px", padding: "20px", color: "#5f4632" }}>Thêm danh mục mới</div>
                                 <div style={{ marginBottom: "20px" }}>
                                     <span style={{ marginRight: "20px" }}>Nhập tên</span>
                                     <input type="text" name="name" onChange={(e) => setNewName(e.target.value)} />
@@ -114,7 +114,7 @@ const Categories = () => {
                                 <img src={newImage} style={{ height: "150px", width: "auto", marginRight: "40px" }} />
                                 <input type="file" name="image" onChange={handleFileChange} />
                                 <div style={{ width: "300px", textAlign: "center", marginTop: "40px" }}>
-                                    <button onClick={addNewCategory} style={{ border: "none", background: "#EE4D2D", color: "white", borderRadius: "5px", padding: "10px 20px" }}>Thêm mới</button>
+                                    <button onClick={addNewCategory} style={{ border: "none", background: "#5f4632", color: "white", borderRadius: "5px", padding: "10px 20px" }}>Thêm mới</button>
                                 </div>
                             </Container>
                         )}

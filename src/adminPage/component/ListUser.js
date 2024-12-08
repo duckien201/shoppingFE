@@ -89,7 +89,7 @@ const ListUser = () => {
                     </Col>
                     <Col xs={10}>
                         <Container style={{ background: "#FCFCFC" }}>
-                            <div style={{ fontSize: "20px", padding: "20px", color: "#EE4D2D" }}>Quản lý tài khoản người dùng</div>
+                            <div style={{ fontSize: "20px", padding: "20px", color: "#5f4632" }}>Quản lý tài khoản người dùng</div>
                             <div style={{ padding: "10px 20px" }}>
                                 <input 
                                     type="checkbox" 

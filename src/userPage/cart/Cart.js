@@ -241,7 +241,7 @@ const Cart = () => {
         <div style={{ background: "#F5F5F5" }}>
             <Header cart={carts?.length } />
 
-            <Container style={{ background: "white", padding: "20px 20px", color: "#FC5731", borderBottom: "solid 1px #F5F5F5" }}>
+            <Container style={{ background: "white", padding: "20px 20px", color: "#5f4632", borderBottom: "solid 1px #F5F5F5" }}>
                 <div style={{ fontSize: "25px" }}>Giỏ hàng</div>
             </Container>
 
@@ -558,7 +558,7 @@ const Cart = () => {
                             <button
                                 style={{
                                     border: "none",
-                                    background: "#F05D40",
+                                    background: "#5f4632",
                                     color: "white",
                                     padding: "10px 40px"
                                 }}

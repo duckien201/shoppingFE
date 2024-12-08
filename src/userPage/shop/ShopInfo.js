@@ -106,9 +106,9 @@ const ShopInfo = ({ idShop }) => {
                             </div>
                             <button onClick={() => navigate(`/shop/${shop?.id}`)} style={{
                                 background: "#EDDCBE",
-                                border: "solid 1px #FC5731",
+                                border: "solid 1px #5f4632",
                                 padding: "5px 15px",
-                                color: "#FC5731",
+                                color: "#5f4632",
                                 width: "125px",
                             }}><AiOutlineShop /> Xem Shop</button>
                         </Col>
@@ -136,7 +136,7 @@ const ShopInfo = ({ idShop }) => {
                                 {averageStar !== undefined ? averageStar : 0}
                             </span>
                         </Col>
-                        <Col xs={3}>Tham gia vào: <span style={{ color: "red" }}>{moment().diff(shop?.dateSignup, 'years')} năm trước</span></Col>
+                        {/* <Col xs={3}>Tham gia vào: <span style={{ color: "red" }}>{moment().diff(shop?.dateSignup, 'years')} năm trước</span></Col> */}
                         <Col xs={3}>Sản phẩm: <span style={{ color: "red" }}>{allProduct.length}</span></Col>
                     </Row>
                 </Col>

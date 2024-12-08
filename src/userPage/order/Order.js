@@ -15,24 +15,22 @@ const Order = () => {
     const [user, setUser] = useState(null);
     const [shopOrder, setShopOrder] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [totalOrder, setTotalOrder] = useState(0)
-    const [payMethod, setPayMethod] = useState("cod")
-    const navigate = useNavigate()
-    const token = JSON.parse(localStorage.getItem("user"))?.token
+    const [totalOrder, setTotalOrder] = useState(0);
+    const [payMethod, setPayMethod] = useState("cod");
+    const navigate = useNavigate();
+    const token = JSON.parse(localStorage.getItem("user"))?.token;
 
     useEffect(() => {
         if (!token) {
-            // Chuyển hướng đến trang đăng nhập nếu không có token
             navigate('/signin');
         }
-    }, [token, navigate])
+    }, [token, navigate]);
 
     useEffect(() => {
         const orderItemLocal = JSON.parse(localStorage.getItem("order"));
         const userLocal = JSON.parse(localStorage.getItem("user"));
         const shopOrderLocal = JSON.parse(localStorage.getItem("shopOrder"));
-        setTotalOrder(orderItemLocal?.reduce((total, item) => total + item.product.price * (100 - item.product.sale) / 100 * item.quantity, 0))
-
+        setTotalOrder(orderItemLocal?.reduce((total, item) => total + item.product.price * (100 - item.product.sale) / 100 * item.quantity, 0));
 
         setOrderItem(orderItemLocal);
         setUser(userLocal);
@@ -48,56 +46,61 @@ const Order = () => {
     if (loading) {
         return <div>Loading...</div>;
     }
+
     const handleOrder = async () => {
         if (!user.address || !user.phone) {
-            message.error("Chưa có địa chỉ hoặc số điện thoại")
-            return
+            message.error("Chưa có địa chỉ hoặc số điện thoại");
+            return;
+        }
+        if (payMethod === "wallet" && (user?.wallet <= 0 || user?.wallet < totalOrder + 10000)) {
+            message.error("Số dư ví không đủ để thanh toán!");
+            return;
         }
         const info = orderItem.map(order => {
-            return { shopId: order.product.shop.id, productId: order.product.idProduct, quantity: order.quantity, price: order.quantity * (order.product.price * (100 - order.product.sale) / 100) }
-        })
+            return {
+                shopId: order.product.shop.id,
+                productId: order.product.idProduct,
+                quantity: order.quantity,
+                price: order.quantity * (order.product.price * (100 - order.product.sale) / 100)
+            };
+        });
+
         const bill = {
             userId: user.id,
             orderItems: info,
-            payMethod: payMethod
-        }
+            payMethod: payMethod,
+            totalAmount: totalOrder + (payMethod === "wallet" ? 0 : 10000),
+        };
+
         const idCartList = orderItem.map(order => {
-            return order.id
-        })
+            return order.id;
+        });
+
         try {
-            const response = await axios.post(`${BASE_URL}/order`, bill,
-                {
-                    headers: {
-                        'Authorization': `Bearer ${token}`
-                    }
-                })
-            console.log(response);
+            const response = await axios.post(`${BASE_URL}/order`, bill, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+
             if (response.status === 200) {
-                console.log("200");
-                
                 if (idCartList.length) {
                     for (const idCart of idCartList) {
                         try {
-                            await axios.post(`${BASE_URL}/cart/delete?idCart=${idCart}`,
-                                {},
-                                {
-                                    headers: {
-                                        'Authorization': `Bearer ${token}`
-                                    }
-                                })
+                            await axios.post(`${BASE_URL}/cart/delete?idCart=${idCart}`, {}, {
+                                headers: {
+                                    'Authorization': `Bearer ${token}`
+                                }
+                            });
                         } catch (error) {
                             console.log(error);
                         }
                     }
                 }
-                if (payMethod === "online") {
-                    // lấy mảng id của các đơn order vừa đặt
-                    const arrayIdOrder = response.data.map(order => {
-                        return order?.id
-                    })
-                    //
-                    banking(arrayIdOrder)
 
+                if (payMethod === "online") {
+                    const arrayIdOrder = response.data.map(order => order?.id);
+                    banking(arrayIdOrder);
                 } else {
                     Swal.fire({
                         position: 'center',
@@ -108,7 +111,7 @@ const Order = () => {
                         timer: 1500,
                     });
                     setTimeout(() => {
-                        navigate('/user/purchaseOrder'); // Redirect to the signin page after 2 seconds
+                        navigate('/user/purchaseOrder');
                     }, 2000);
                 }
             }
@@ -120,15 +123,38 @@ const Order = () => {
                 message.error("Có lỗi xảy ra!");
             }
         }
-    }
-    const handlePayMethodChange = (event) => {
-        setPayMethod(event.target.value);
     };
 
+    const handlePayMethodChange = (event) => {
+        const selectedPayMethod = event.target.value;
+
+        if (selectedPayMethod === "wallet") {
+            if (user?.wallet <= 0 || user?.wallet < totalOrder + 10000) {
+                Swal.fire({
+                    title: 'Số dư ví không đủ!',
+                    text: 'Bạn có muốn đến trang nạp tiền không?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Nạp tiền',
+                    cancelButtonText: 'Đóng',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        navigate('/user/wallet');
+                    } else {
+                        setPayMethod("cod");
+                    }
+                });
+            } else {
+                setPayMethod(selectedPayMethod);
+            }
+        } else {
+            setPayMethod(selectedPayMethod);
+        
+        }
+    }
     const banking = async (listIdOrder) => {
         try {
-            const response = await axios.post(`${BASE_URL}/api/payment/create_payment`, listIdOrder)
-            console.log(response);
+            const response = await axios.post(`${BASE_URL}/api/payment/create_payment`, listIdOrder);
             Swal.fire({
                 position: 'center',
                 icon: 'success',
@@ -143,18 +169,20 @@ const Order = () => {
         } catch (error) {
             console.log(error);
         }
-    }
-    const isButtonDisabled = payMethod === "wallet" && user?.wallet < totalOrder
+    };
+
+    const isButtonDisabled = payMethod === "wallet" && user?.wallet < totalOrder; // Tổng tiền hàng + phí vận chuyển
+
     return (
         <div style={{ background: "#F5F5F5" }}>
             <Header />
-            <Container style={{ background: "white", padding: "20px 20px", color: "#FC5731", borderBottom: "solid 1px #F5F5F5" }}>
+            <Container style={{ background: "white", padding: "20px 20px", color: "#5f4632", borderBottom: "solid 1px #F5F5F5" }}>
                 <div style={{ fontSize: "25px" }}>Thanh toán</div>
             </Container>
             <br />
             <Container style={{ background: "white", marginBottom: "10px", padding: "30px 25px" }}>
                 <div style={{ fontSize: "18px" }}>
-                    <span style={{ color: "#FC5731" }}><FaLocationDot /></span>
+                    <span style={{ color: "#5f4632" }}><FaLocationDot /></span>
                     <span> Địa chỉ nhận hàng</span>
                 </div>
                 <div style={{ marginTop: "10px", display: "flex", justifyContent: "space-between" }}>
@@ -165,7 +193,7 @@ const Order = () => {
                         <div>{user.address}</div>
                         <button onClick={() => navigate('/user/profile')} style={{ background: "none", border: "none", color: "#008AD3", marginLeft: "20px" }}>Thay đổi</button>
                     </div>
-                    <div>Phí vận chuyển: 20.000đ - 50.000đ</div>
+                    <div>Phí vận chuyển: 10.000đ</div>
                 </div>
             </Container>
             <Container style={{ background: "white", padding: "20px 15px" }}>
@@ -232,10 +260,12 @@ const Order = () => {
                     <div>
                         Tổng tiền hàng
                     </div>
-                    <h4 style={{ color: "#FC5731" }}>{formatMoney(totalOrder)} đ</h4>
+                    <h4 style={{ color: "#FC5731" }}>
+                        {formatMoney(totalOrder + (payMethod === "wallet" ? 0 : 10000))} đ
+                    </h4>
                 </div>
                 <div style={{ marginLeft: "auto", display: "block", textAlign: "right", marginTop: "10px" }}>
-                    <button style={{ padding: "10px 30px", border: "none", background: "#FC5731", color: "white" }}
+                    <button style={{ padding: "10px 30px", border: "none", background: "#5f4632", color: "white" }}
                         onClick={handleOrder}
                         disabled={isButtonDisabled}
                     >Đặt hàng</button>

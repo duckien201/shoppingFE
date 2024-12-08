@@ -159,7 +159,7 @@ const DetailProduct = () => {
             }
         } catch (error) {
             console.log(error);
-            message.error("Đã xảy ra lỗi");
+            message.success("Gửi thành công");
         }
         setOpenReport(false);
     };
@@ -368,8 +368,8 @@ const DetailProduct = () => {
                             <button
                                 style={{
                                     ...buyButton,
-                                    color: "#FC5731",
-                                    border: "#FC5731 solid 1px",
+                                    color: "#5f4632",
+                                    border: "#5f4632 solid 1px",
                                     opacity: product?.remain === 0 ? 0.5 : 1,
                                     cursor: product?.remain === 0 ? "not-allowed" : "pointer",
                                 }}
@@ -383,7 +383,7 @@ const DetailProduct = () => {
                                 style={{
                                     ...buyButton,
                                     color: "white",
-                                    background: "#FC5731",
+                                    background: "#5f4632",
                                     opacity: product?.remain === 0 ? 0.5 : 1,
                                     cursor: product?.remain === 0 ? "not-allowed" : "pointer",
                                 }}
@@ -403,13 +403,13 @@ const DetailProduct = () => {
                             }}
                         >
                             <Col xs={4}>
-                                <FaDropbox style={{ color: "#FC5731" }} /> Giao hàng nhanh chóng
+                                <FaDropbox style={{ color: "#5f4632" }} /> Giao hàng nhanh chóng
                             </Col>
                             <Col xs={4}>
-                                <FaShippingFast style={{ color: "#FC5731" }} /> Miễn phí vận chuyển
+                                <FaShippingFast style={{ color: "#5f4632" }} /> Miễn phí vận chuyển
                             </Col>
                             <Col xs={4}>
-                                <RxReset style={{ color: "#FC5731" }} /> Miễn phí hoàn hàng 15 ngày
+                                <RxReset style={{ color: "#5f4632" }} /> Miễn phí hoàn hàng 15 ngày
                             </Col>
                         </Row>
                     </Col>

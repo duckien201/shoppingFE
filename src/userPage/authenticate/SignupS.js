@@ -92,7 +92,7 @@ export default function SignupS() {
             <div style={{ backgroundColor: "#FBFBFB", padding: "15px" }}>
                 <Container>
                     <div style={{ display: "flex" }}>
-                        <Link to="/"><img src="../images/logo5.png" alt="Logo" style={{ height: "70px" }} /></Link>
+                        <Link to="/"><img src="../images/logo6.png" alt="Logo" style={{ height: "70px" }} /></Link>
                         <h4 className="fw-normal mb-3 ps-5 " style={{ marginTop: "20px" }}>Trang đăng ký</h4>
 
                     </div>
@@ -135,7 +135,7 @@ export default function SignupS() {
                                     </span>
                                 </p>
                             </div>
-                            <Button className="mb-4 px-5 mx-5 w-100" style={{ backgroundColor: '#FC5731', color: 'white' }} color='info' size='lg' type="submit">Đăng ký</Button>
+                            <Button className="mb-4 px-5 mx-5 w-100" style={{ backgroundColor: '#5f4632', color: 'white' }} color='info' size='lg' type="submit">Đăng ký</Button>
                             <p className="small mb-5 pb-lg-3 ms-5"><Link className="text-muted" to="/signupE">Đăng ký với email</Link></p>
                             <p className='ms-5'>Đã có tài khoản? <Link to={"/signin"} className="link-info">Đăng nhập</Link></p>
 

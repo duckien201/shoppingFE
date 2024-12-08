@@ -54,7 +54,7 @@ export default function Home() {
                         <img src="../images/banner2.jpg" alt="Slide 2" style={{ width: "100%", maxHeight: "100%", objectFit: "contain" }} />
                     </div>
                     <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
-                        <img src="../images/banner-3.png" alt="Slide 3" style={{ width: "100%", maxHeight: "100%", objectFit: "contain" }} />
+                        <img src="../images/banne3.png" alt="Slide 3" style={{ width: "100%", maxHeight: "100%", objectFit: "contain" }} />
                     </div>
                 </Slider>
             </Container>

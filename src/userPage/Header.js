@@ -73,7 +73,7 @@ export default function Header({ unreadCount, cart }) {
     };
 
     return (
-        <div style={{ background: "#FC5731", paddingTop: "5px" }}>
+        <div style={{ background: "#5f4632", paddingTop: "5px" }}>
             <Container>
                 <div style={{ display: "flex", justifyContent: "space-between" }}>
                     <div>
